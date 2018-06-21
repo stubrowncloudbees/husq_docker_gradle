@@ -52,7 +52,7 @@ spec:
                 sh 'ls'
                 sh 'pwd' 
                 //sh 'docker build .'
-                sh 'ls /''
+                sh 'ls /'
                
 
             }
