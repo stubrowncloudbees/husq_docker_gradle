@@ -9,6 +9,10 @@ spec:
     image: stuartcbrown/gradlehusq
     command: ["sleep"]
     args: ["100000"]
+  - name: cli
+    image: mesosphere/aws-cli
+    command: ["sleep"]
+    args: ["100000"]
   - name: docker
     image: docker:18.03-git
     command: ["sleep"]
@@ -53,6 +57,18 @@ spec:
                 sh 'pwd' 
                 //sh 'docker build .'
                 sh 'ls /'
+                
+               
+
+            }
+        }
+    }
+  
+  stage("push to ecs") {
+    node("kubernetes") {
+        container("cli") {
+           //checkout scm
+                
                 docker.withRegistry('https://324005994172.dkr.ecr.us-east-1.amazonaws.com/cloudbeeps', 'ecr:us-east-1:demo-ecr-credentials') {
                   docker.image('demo').push('latest')
                 }
