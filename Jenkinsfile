@@ -26,10 +26,11 @@ spec:
      stage("docker") {
     node("kubernetes") {
         container("docker") {
-           
+           checkout scm
                 sh "docker version"
                 sh 'id'
                 sh 'ls'
+                sh 'pwd'
                 sh 'docker build .'
 
             }
