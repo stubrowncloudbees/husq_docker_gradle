@@ -35,6 +35,7 @@ spec:
     stage("gradle") {
     node("kubernetes") {
         container("gradle") {
+            checkout scm
            
                 sh "echo gradle"
                 sh 'ls && pwd'
