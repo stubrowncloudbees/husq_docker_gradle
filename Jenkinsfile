@@ -29,6 +29,7 @@ spec:
            
                 sh "docker version"
                 sh 'id'
+                sh 'ls'
                 sh 'docker build .'
 
             }
