@@ -23,19 +23,7 @@ spec:
       type: Socket
 """
 ) {
-     stage("docker") {
-    node("kubernetes") {
-        container("docker") {
-           checkout scm
-                sh "docker version"
-                sh 'id'
-                sh 'ls'
-                sh 'pwd'
-                sh 'docker build .'
-
-            }
-        }
-    }
+    
     stage("gradle") {
     node("kubernetes") {
         container("gradle") {
@@ -45,6 +33,22 @@ spec:
                 sh "echo gradle"
                 sh 'ls && pwd'
                 sh './gradlew build'
+                sh 'df -k'
+                
+            }
+        }
+    }
+    stage("docker") {
+    node("kubernetes") {
+        container("docker") {
+           checkout scm
+                sh "docker version"
+                sh 'id'
+                sh 'ls'
+                sh 'pwd'
+                sh 'df -k'
+                sh 'docker build .'
+
             }
         }
     }
