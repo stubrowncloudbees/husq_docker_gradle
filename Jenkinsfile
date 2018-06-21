@@ -37,6 +37,7 @@ spec:
         container("gradle") {
            
                 sh "echo gradle"
+                sh 'ls && pwd'
                 sh './gradlew build'
             }
         }
