@@ -30,6 +30,7 @@ spec:
             checkout scm
            
                 sh 'df -k'
+                sh 'ls /home/jenkins/workspace'
                 sh 'id'
                 sh 'ls && pwd'
                 sh './gradlew build'
@@ -43,6 +44,7 @@ spec:
         container("docker") {
            checkout scm
                 sh 'df -k'
+                sh 'ls /home/jenkins/workspace'
                 sh "docker version"
                 sh 'id'
                 sh 'ls'
