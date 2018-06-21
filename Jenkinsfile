@@ -29,6 +29,8 @@ spec:
            
                 sh "docker version"
                 sh 'id'
+                sh 'docker build .'
+
             }
         }
     }
@@ -37,6 +39,7 @@ spec:
         container("gradle") {
             checkout scm
            
+                sh 'id'
                 sh "echo gradle"
                 sh 'ls && pwd'
                 sh './gradlew build'
