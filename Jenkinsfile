@@ -29,11 +29,11 @@ spec:
         container("gradle") {
             checkout scm
            
+                sh 'df -k'
                 sh 'id'
-                sh "echo gradle"
                 sh 'ls && pwd'
                 sh './gradlew build'
-                sh 'df -k'
+                
                 
             }
         }
@@ -42,11 +42,11 @@ spec:
     node("kubernetes") {
         container("docker") {
            checkout scm
+                sh 'df -k'
                 sh "docker version"
                 sh 'id'
                 sh 'ls'
-                sh 'pwd'
-                sh 'df -k'
+                sh 'pwd' 
                 sh 'docker build .'
 
             }
