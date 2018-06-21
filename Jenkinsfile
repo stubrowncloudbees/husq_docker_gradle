@@ -36,20 +36,21 @@ spec:
                 sh './gradlew build'
                 
                 
+                
             }
         }
     }
     stage("docker") {
     node("kubernetes") {
         container("docker") {
-           checkout scm
+           //checkout scm
                 sh 'df -k'
                 sh 'ls /home/jenkins/workspace'
                 sh "docker version"
                 sh 'id'
                 sh 'ls'
                 sh 'pwd' 
-                sh 'docker build .'
+                //sh 'docker build .'
 
             }
         }
