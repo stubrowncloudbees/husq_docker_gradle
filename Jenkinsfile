@@ -34,6 +34,7 @@ spec:
                 sh 'id'
                 sh 'ls && pwd'
                 sh './gradlew build'
+                sh 'cp Dockerfile /'
                 
                 
                 
@@ -51,6 +52,8 @@ spec:
                 sh 'ls'
                 sh 'pwd' 
                 //sh 'docker build .'
+                sh 'cp /Dockerfile .'
+                sh 'ls'
 
             }
         }
